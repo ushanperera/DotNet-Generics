@@ -26,7 +26,7 @@ class Program
         ArrayList arrayList = new ArrayList();// ArrayList - dynamic size
         arrayList.Add(100);
 
-        Person person = new Person { FirstName = "kamal", LastName = "perera", IsAlive = true};
+        Person person = new Person { FirstName = "kamal", LastName = "perera", IsAlive = true };
 
 
         //check the type and value of the variable
@@ -34,8 +34,11 @@ class Program
         TypeChecker(arrayList);
         TypeChecker(person);
 
+        //Checked using Generics
+        Console.WriteLine(areEqual(1, 2));
+        Console.WriteLine(areEqual(2.33, 2.33));
+        Console.WriteLine(areEqual("Kamal", "Nimal"));
 
-        //ages.Add(23);
 
         Console.ReadLine();
 
@@ -44,6 +47,12 @@ class Program
         Console.WriteLine();
         Console.Write("Press enter...");
         Console.ReadLine();
+    }
+
+
+    public static bool areEqual<T>(T value1, T value2)
+    {
+        return value1.Equals(value2);
     }
 
     private static void TypeChecker<T>(T value)
