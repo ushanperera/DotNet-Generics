@@ -34,10 +34,16 @@ class Program
         TypeChecker(arrayList);
         TypeChecker(person);
 
-        //Checked using Generics
+        //Checked using Generics - Methods
         Console.WriteLine(areEqual(1, 2));
         Console.WriteLine(areEqual(2.33, 2.33));
         Console.WriteLine(areEqual("Kamal", "Nimal"));
+
+
+        //Checked using Generics - Classes ( this is easy to read)
+        Console.WriteLine(sampleClass<int>.areEqual(1, 2));
+        Console.WriteLine(sampleClass<double>.areEqual(2.1, 2.1));
+        Console.WriteLine(sampleClass<string>.areEqual("Kamal", "Nimal"));
 
 
         Console.ReadLine();
@@ -112,9 +118,9 @@ class Program
 
     private static void PopulateLists(List<Person> people, List<LogEntry> logs)
     {
-        people.Add(new Person { FirstName = "Tim", LastName = "Corey" });
-        people.Add(new Person { FirstName = "Sue", LastName = "Storm", IsAlive = false });
-        people.Add(new Person { FirstName = "Greg", LastName = "Olsen" });
+        people.Add(new Person { FirstName = "aaa", LastName = "111" });
+        people.Add(new Person { FirstName = "bbb", LastName = "222", IsAlive = false });
+        people.Add(new Person { FirstName = "ccc", LastName = "333" });
 
         logs.Add(new LogEntry { Message = "I blew up", ErrorCode = 9999 });
         logs.Add(new LogEntry { Message = "I'm too awesome", ErrorCode = 1337 });
@@ -123,3 +129,9 @@ class Program
 }
 
 
+public static class sampleClass<T>
+{    public static bool areEqual(T value1, T value2)
+    {
+        return value1.Equals(value2);
+    }
+}
