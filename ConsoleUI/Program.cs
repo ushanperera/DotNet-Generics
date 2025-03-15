@@ -26,7 +26,11 @@ class Program
         ArrayList arrayList = new ArrayList();// ArrayList - dynamic size
         arrayList.Add(100);
 
-        Person person = new Person { FirstName = "kamal", LastName = "perera", IsAlive = true };
+        decimal[,] twoDimentianalArray = new decimal[2, 4];
+        twoDimentianalArray[0, 0] = 100;
+
+
+         Person person = new Person { FirstName = "kamal", LastName = "perera", IsAlive = true };
 
 
         //check the type and value of the variable
@@ -82,6 +86,8 @@ class Program
         GenericTextFileProcessor.SaveToTextFile<LogEntry>(logs, logFile);
 
         var newPeople = GenericTextFileProcessor.LoadFromTextFile<Person>(peopleFile);
+
+        //for(int i = 0; i < newPeople.Count; i++) 
 
         foreach (var p in newPeople)
         {
